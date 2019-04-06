@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">How2Cook</string>
+    <string name="image_constant_descriptor_reciper">How to cook %s</string>
+    <string name="title_ingredient">Ingredients</string>
+    <string name="title_steps">How to Cook</string>
+    <string name="ingredient_field">%1$s %2$s - %3$s</string>
+    <string name="step_field">Step %1$d</string>
+    <string name="step_intro">Intro</string>
+    <string name="next_step">Next Step</string>
+    <string name="previous_step">Previous Step</string>
+</resources>
