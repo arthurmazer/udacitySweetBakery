@@ -9,8 +9,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.mazerapp.tec.udacityculinaria.R;
 import com.mazerapp.tec.udacityculinaria.models.Recipes;
-import com.mazerapp.tec.udacityculinaria.modules.recipe_view.recipe.RecipeFragment;
-import com.mazerapp.tec.udacityculinaria.modules.recipe_view.video_view.VideoViewFragment;
 import com.mazerapp.tec.udacityculinaria.utils.adapters.RecipesAdapter;
 import com.mazerapp.tec.udacityculinaria.utils.interfaces.OnItemClicked;
 import com.mazerapp.tec.udacityculinaria.utils.interfaces.OnLoadRecipes;

@@ -23,6 +23,7 @@ public class RecipeViewViewModel extends ViewModel {
         actualRecipesLiveData.postValue(bundle.getParcelable(Constants.EXTRA_RECIPE));
     }
 
+
     public MutableLiveData<Recipes> getActualRecipesLiveData() {
         return actualRecipesLiveData;
     }

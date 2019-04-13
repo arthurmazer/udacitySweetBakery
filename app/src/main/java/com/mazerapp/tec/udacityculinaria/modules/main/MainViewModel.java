@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 
 import com.mazerapp.tec.udacityculinaria.models.Recipes;
 import com.mazerapp.tec.udacityculinaria.modules.recipe_view.RecipeViewAcivity;
-import com.mazerapp.tec.udacityculinaria.modules.recipe_view.recipe.RecipeFragment;
 import com.mazerapp.tec.udacityculinaria.utils.GetData;
 import com.mazerapp.tec.udacityculinaria.utils.interfaces.OnLoadRecipes;
 

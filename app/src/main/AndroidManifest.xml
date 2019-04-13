@@ -23,6 +23,7 @@
         <activity android:name=".modules.recipe_view.recipe.RecipeFragment" />
         <activity android:name=".modules.recipe_view.preparing.PrepareFragment" />
         <activity android:name=".modules.recipe_view.RecipeViewAcivity"></activity>
+        <activity android:name=".modules.recipe_view.preparing.PrepareActivity" />
     </application>
 
 </manifest>
