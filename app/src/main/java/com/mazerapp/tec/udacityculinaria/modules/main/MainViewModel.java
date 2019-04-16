@@ -15,7 +15,10 @@ import java.util.ArrayList;
 
 import static com.mazerapp.tec.udacityculinaria.utils.Constants.EXTRA_RECIPE;
 
-class MainViewModel extends ViewModel {
+public class MainViewModel extends ViewModel {
+
+    public MainViewModel() {
+    }
 
     @SuppressLint("StaticFieldLeak")
     void loadRecipes(final OnLoadRecipes onLoadRecipes){

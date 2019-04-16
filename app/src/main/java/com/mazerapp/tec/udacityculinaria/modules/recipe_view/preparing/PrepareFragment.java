@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mazerapp.tec.udacityculinaria.R;
@@ -31,14 +31,16 @@ public class PrepareFragment extends Fragment {
     TextView tvStepDescription;
 
     @BindView(R.id.btn_previous_step)
-    Button btnPrevious;
+    TextView btnPrevious;
 
     @BindView(R.id.btn_next_step)
-    Button btnNext;
+    TextView btnNext;
 
     @BindView(R.id.frame_video)
-    @Nullable
     FrameLayout frameVideo;
+
+    @BindView(R.id.iv_placeholder)
+    ImageView imPlaceholder;
 
     private PrepareViewModel prepareViewModel;
 
@@ -54,9 +56,21 @@ public class PrepareFragment extends Fragment {
         if (getActivity() == null) return;
         ButterKnife.bind(this, view);
         prepareViewModel = ViewModelProviders.of(getActivity()).get(PrepareViewModel.class);
+
+        if (savedInstanceState == null) {
+            if (prepareViewModel.getArguments() == null) {
+                getExtras();
+            }
+        }
+
         registerObservers();
-        getExtras();
         setupView();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     private void registerObservers(){
@@ -91,7 +105,22 @@ public class PrepareFragment extends Fragment {
 
     private void loadInfo(Steps step){
         tvStepDescription.setText(step.getDescription());
-        setupVideoView(step.getVideoURL());
+        if (!step.getVideoURL().isEmpty()) {
+            setupVideoView(step.getVideoURL());
+            showImagePlaceholder(false);
+        }else{
+            showImagePlaceholder(true);
+        }
+    }
+
+    private void showImagePlaceholder(boolean show){
+        if (show) {
+            imPlaceholder.setVisibility(View.VISIBLE);
+            frameVideo.setVisibility(View.GONE);
+        }else{
+            imPlaceholder.setVisibility(View.GONE);
+            frameVideo.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setupVideoView(String videoURL){

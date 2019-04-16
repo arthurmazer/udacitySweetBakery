@@ -6,5 +6,6 @@ public class Constants {
     public static String EXTRA_RECIPE = "extra_recipe";
     public static String EXTRA_LIST_STEPS = "extra_steps";
     public static String EXTRA_STEP_SELECTED = "extra_steps_index";
+    public static String ACTION_UPDATE_WIDGET = "update_widget";
 
 }

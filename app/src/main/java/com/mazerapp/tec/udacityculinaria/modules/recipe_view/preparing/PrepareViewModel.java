@@ -1,12 +1,10 @@
 package com.mazerapp.tec.udacityculinaria.modules.recipe_view.preparing;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -23,6 +21,7 @@ public class PrepareViewModel extends AndroidViewModel{
     private MutableLiveData<Steps> currentStepLiveData = new MutableLiveData<>();
     private MutableLiveData<String> toolbarTextLiveData = new MutableLiveData<>();
     private int indexStepLoaded;
+    private Bundle arguments;
     private ArrayList<Steps> arraySteps;
     @SuppressLint("StaticFieldLeak")
     private Context context;
@@ -40,7 +39,8 @@ public class PrepareViewModel extends AndroidViewModel{
     void setCurrentStepLoaded(int indexStepLoaded) {
         this.indexStepLoaded = indexStepLoaded;
         checkToolbarText(indexStepLoaded);
-        currentStepLiveData.postValue(this.arraySteps.get(indexStepLoaded));
+        currentStepLiveData.setValue(this.arraySteps.get(indexStepLoaded));
+        arguments.putInt(Constants.EXTRA_STEP_SELECTED, indexStepLoaded);
         checkButtonsVisibility(indexStepLoaded);
     }
 
@@ -67,6 +67,7 @@ public class PrepareViewModel extends AndroidViewModel{
 
     public void getExtras(Bundle arguments){
         if (arguments == null) return;
+        this.arguments = arguments;
         this.indexStepLoaded = arguments.getInt(Constants.EXTRA_STEP_SELECTED,0);
         initViewModel(arguments.getParcelableArrayList(Constants.EXTRA_LIST_STEPS));
         setCurrentStepLoaded(this.indexStepLoaded);
@@ -96,6 +97,8 @@ public class PrepareViewModel extends AndroidViewModel{
     public MutableLiveData<Boolean> getShowBtnNextLiveData() {
         return showBtnNextLiveData;
     }
+
+    public Bundle getArguments(){ return arguments;}
 
 
 }

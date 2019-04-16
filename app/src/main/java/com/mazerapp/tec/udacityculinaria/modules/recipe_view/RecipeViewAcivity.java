@@ -105,7 +105,7 @@ public class RecipeViewAcivity extends BaseActivity  implements OnStepClicked {
     }
 
     private void getExtras() {
-        recipeViewModel.getExtras(getIntent());
+        recipeViewModel.getExtras(this, getIntent());
     }
 
     private void registerObservers() {
@@ -113,7 +113,14 @@ public class RecipeViewAcivity extends BaseActivity  implements OnStepClicked {
             if (recipes == null) return;
             loadIngredients(recipes.getIngredients());
             loadSteps(recipes.getSteps());
+            setToolbarText(recipes.getName());
         });
+    }
+
+    private void setToolbarText(String name) {
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle(name);
+        }
     }
 
     private void loadIngredients(ArrayList<Ingredients> listIngredients){ingredientAdapter.setList(listIngredients);}
